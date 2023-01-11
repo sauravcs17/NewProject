@@ -1,0 +1,53 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>questionlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+  .previous {
+    background-color: rgb(255, 81, 0);
+    color: black;
+  }
+  
+.round {
+  border-radius: 50%;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+</style>
+<p></p>
+<a href="{% url 'account:adminduty' %}" class="previous round" style="margin-left: 1400px;">&#8249;</a>
+<body style="background-color: cadetblue;">
+    <h2><b><center>Questions</center></b></h2>
+<div class="w3-container">
+    {% for i in questionlist %}
+  <h2></h2>
+<div style="background-color:white">
+  <ul class="w3-ul w3-card-4">
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+      <img src="{% static 'images/question.png' %}" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+      <div class="w3-bar-item">
+        <span class="w3-large"><b>{{i.question}}</b></span><br>
+        
+      </div>
+
+      </div>
+    </li>
+
+
+    
+  </ul>
+  {% endfor %}
+</div>
+
+</body>
+</html>
+

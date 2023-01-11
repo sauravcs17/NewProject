@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body
+    {
+      background-color:wheat    }
+  </style>
+</head>
+
+ <body>
+
+	 <section>
+			<div id="page-wrapper" class="sign-in-wrapper">
+				<div class="graphs">
+					<div class="sign-in-form">
+						<div class="sign-in-form-top">
+              <h1 style="color:black"><center><b>LOGIN</b></center></h1>
+              
+						</div>
+						<div class="signin">
+							<div class="signin-rit">
+
+								<div class="clearfix"> </div>
+							</div>
+         
+<!--
+
+                   <form  method="POST">
+    {% csrf_token %}
+<div class="v">
+
+
+        <table>
+
+
+   <tr><td> <b>USERNAME :</b></td>
+       <td><input type="text" name="username" placeholder="UserName"></td>
+       </tr>
+
+            <tr>
+    <td> <b>PASSWORD :</b></td><td><input type="password" name="password" placeholder="Password"></td>
+            </tr>
+
+
+
+            <tr>
+    <td>  <input type="submit" value="Login"/></td>
+        </tr>
+        </tr>
+
+
+
+
+
+     </table>
+</div>
+</form>
+
+                        -
+
+-->
+<!----
+							<form class="form-horizontal" method="POST">
+								    {% csrf_token %}
+  <div class="form-group" style="margin-left: 90px;">
+
+    <table>
+      <tr><td>
+      <input type="text" class="form-control" name="name" placeholder="Enter Your UserName" style="width: 300px;"></td></tr>
+      <tr><td><br></td></tr>
+      <tr><td>    
+      <input type="text" class="form-control" name="registration_number" placeholder="Enter Your Registration Number">
+      </td></tr>
+    </table>
+    </div>
+  
+ <br>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+      <button type="submit" class="btn btn-success" style="width: 100px;margin-left: 100px;">Login</button>
+    </div>
+  </div>
+  <center>
+    <h2>or</h2><br>
+  <h3 style="color:red">Speak Your Name and Registration Number</h3>
+</center>
+-->							
+<form class="form-horizontal" method="POST">
+  {% csrf_token %}
+							    <!-- Input area -->
+   <!---- <label for="Speech Recognition">Speech Recognition</label>-->
+   <div class="form-group" style="margin-left: 600px;margin-top:200px;">
+    <input type="text" accesskey="a" class="form-control" style="width: 400px;" name="name1" id="speechToText" placeholder="Speak/Enter your Name.." onclick="record()"><br>
+    <input type="text" accesskey="b" class="form-control" style="width: 400px;" name="reg1" id="speech" placeholder="Speak/Enter your Registration Number.." onclick="record1()"><br>
+ 
+      <button id="myBtn" type="submit"  accesskey="n" class="btn btn-primary" style="width: 200px;margin-left: 145px;" >Login</button>
+  
+   </div>
+  
+  </form>
+  {% for i in messages %}
+  <div class="alert alert-danger" role="alert">
+{{i}}
+</div>
+  {% endfor %}
+    <!-- Below is the script for voice recognition and conversion to text-->
+    <script>
+      var input = document.getElementById("myInput");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("myBtn").click();
+  }
+});
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-GB";
+
+            recognition.onresult = function(event) {
+                // console.log(event);
+                document.getElementById('speechToText').value = event.results[0][0].transcript;
+               
+            }
+            recognition.start();
+
+        }
+        function record1() {
+          var recognition = new webkitSpeechRecognition();
+          recognition.lang = "en-GB";
+
+          recognition.onresult = function(event) {
+              // console.log(event);
+              document.getElementById('speech').value = event.results[0][0].transcript;
+             
+          }
+          recognition.start();
+
+      }
+    </script>
+						</div>
+						<div class="new_people">
+							<!-- <h2>For New People</h2> -->
+						
+
+						</div>
+					</div>
+				</div>
+			</div>
+		 {% for i in messages %}
+		 <div class="alert alert-danger" role="alert">
+  {{i}}
+</div>
+		 {% endfor %}
+		<!--footer section start-->
+			<footer class="diff">
+			  
+			</footer>
+        <!--footer section end-->
+	</section>
+</body>
+</html>

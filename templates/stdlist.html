@@ -1,0 +1,59 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>studentlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+  .previous {
+    background-color: rgb(255, 81, 0);
+    color: black;
+  }
+  
+.round {
+  border-radius: 50%;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+</style>
+
+<body style="background-color: cadetblue;">
+  
+<div class="w3-container">
+  <p></p>
+  <a href="{% url 'account:adminduty' %}" class="previous round" style="margin-left: 1400px;">&#8249;</a>
+ <center> <h2><b>Students</b></h2></center>
+    {% for k in students %}
+<h3></h3>
+<div style="background-color:white">
+  <ul class="w3-ul w3-card-4">
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+      <img src="{{k.image.url}}" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+      <div class="w3-bar-item">
+        <span class="w3-large"><b>{{k.name}}</b></span><br>
+        <span>{{k.registration_number}}</span><br>
+        <span>{{k.stream}}</span><br>
+        
+    
+      </div>
+
+      </div>
+    </li>
+
+
+    
+  </ul>
+  {% endfor %}
+</div>
+
+
+
+
+</body>
+</html>

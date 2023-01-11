@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            body
+{
+    background-image: url("{% static 'images/white.jpg' %}");
+    background-size: 2000px 800px;
+}
+            #example2 {
+                border: 2px solid red;
+                padding: 10px;
+                border-radius: 50px 20px;
+                border-bottom-width: thin;
+                width:600px
+              }
+        </style>
+    </head>
+</html>
+<body>
+    <a href="/" style="color:#000000;text-decoration: none">
+        <h1 style="border: 4px solid white;width:150px;padding:4px">D r i s h t i</h1>
+        </a>
+    {% if score %}
+    {% for i in score %}
+    <center>
+    <div style="margin-top: 200px;background-color:rgb(241, 230, 230);" id="example2">
+
+    <p style="font-size:40px">Name : <b>{{i.name}}</b></p>
+    
+    <p style="font-size:40px">Score  : <b>{{i.totalmarks|floatformat:0}} </b></p>
+
+    <p style="font-size:40px">Total Score  : <b> 50 </b></p>
+    
+
+</div>
+</center>
+    {% endfor %}
+    {% else %}
+    <center>
+        <img src="{% static 'images/search123.png' %}" height="112" width="142">
+      <p style="color:rgb(194, 33, 33);font-size:40px;margin-top:200px">NO DATA FOUND...</p>
+      <p>Check the Register Number You Entered..</p>
+      </center>
+  
+    {% endif %}
+</body>

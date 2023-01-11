@@ -1,0 +1,102 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  border: 1px solid #ddd;
+  margin-top: 60px;
+  margin-left: 360px;
+  
+}
+
+.previous {
+    background-color: rgb(255, 81, 0);
+    color: black;
+  }
+  
+.round {
+  border-radius: 50%;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+</head>
+<body style="background-color: cadetblue;">
+    <a href="/" style="color:#454b53;text-decoration: none">
+      <h1 style="border: 4px solid white;width:200px;padding:4px;color:white">D r i s h t i</h1>
+        </a>
+        <a href="{% url 'account:adminduty' %}" class="previous round" style="margin-left: 1200px;">&#8249;</a>
+  
+   <center>
+    <div class="container" style="margin-left: 250px;">
+   <form method="POST">
+    {% csrf_token %}
+    <span>
+    <div class="col-xs-3" >
+      <input type="text" class="form-control" id="usr" name="n1" placeholder="Enter Student Name">
+    </div>
+    <div class="col-xs-3">
+  
+      <input type="text" class="form-control" id="pwd" name="q" placeholder="Enter Student Register Number">
+    </div>
+    <div class="col-xs-3">
+    <input type="submit" value="SUBMIT" class="form-control" style="background-color: coral;color:ghostwhite"/>
+  </div>
+</span>
+    <p>* Click <b>Submit</b>  to Find Total Mark</p>
+   </center>
+  </form>
+</div>
+  
+
+<div style="overflow-x:auto;">
+
+    <table style="background-color:rgb(201, 193, 193);">
+        <tr>
+            <th>NAME</th>
+    
+            <th>REGISTRATION NUMBER</th>
+
+            <th>TOTAL MARKS</th>
+        </tr>
+        {% for item in finalscore %}
+        <tr> 
+            <td>{{ item.name }}</td>
+        
+            <td>{{ item.registration_number }}</td>
+
+            <td>{{ item.totalmarks }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+{% if message %}
+<script>
+ 
+  alert('{{ message }}');
+</script>
+{% endif %}
+</html>

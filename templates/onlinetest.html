@@ -1,0 +1,405 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<link rel="shortcut icon" href="http://bit.ly/ghfavicon" width=32px>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>exam started</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="prefetch" href="pause1.svg">
+	<link rel="prefetch" href="play1.svg">
+	<link rel="prefetch" href="stop1.svg">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<script src="script.js" defer></script>
+    <title>EXAM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+html {
+    font-size: 16pt;
+    font-family: crimson text;
+}
+.question{
+    background: #75ba48;
+    padding: 20px;
+    color: #fff;
+    border-bottom-right-radius: 55px;
+    border-top-left-radius: 55px;
+}
+#qid{
+    margin-right: 22px;
+    background-color: #ffffff;
+    color: #aaaaaa;
+}
+article {
+    width: 60%;
+    margin: auto;
+}
+
+blockquote,
+div,
+h1 {
+    text-align: center;
+}
+
+blockquote {
+    font-size: 1.2rem;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 48px;
+    outline: none;
+    padding: 0;
+    width: 48px;
+}
+
+#play {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play.svg);
+}
+
+#play.played {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play1.svg);
+}
+
+#pause {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause.svg);
+}
+
+#pause.paused {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg);
+}
+
+#stop {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop.svg);
+}
+
+#stop.stopped {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop1.svg);
+}
+
+@media (max-width: 700px) {
+    html {
+        font-size: 14pt;
+    }
+    article {
+        width: 90%;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+
+/*  demo decor */
+
+#-demo-title {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 36px;
+    background-color: #D5FFD1;
+    color: #0F316C;
+    line-height: 36px;
+    font-weight: bold;
+    font-size: 16pt;
+    text-align: center;
+}
+
+#-demo-profile {
+    float: left;
+    height: 100%;
+    opacity: .4;
+}
+
+#-demo-profile:hover {
+    opacity: 1;
+}
+
+@media (max-width: 400px) {
+    #-demo-title {
+        font-size: 12pt;
+    }
+}
+
+
+ 
+button:focus {
+    outline: 0;
+}
+ 
+.mycontainer {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 150px 100px;
+    text-align: center;
+}
+ 
+ 
+.mywebapp {
+    margin: 50px auto;
+}
+ 
+#textbox {
+    margin: 30px 0;
+}
+ 
+@media (max-width: 768px) {
+  .mycontainer {
+    width: 85vw;
+    max-width: 85vw;
+  }
+ 
+    button {
+        margin-bottom: 10px;
+}
+}
+
+    </style>
+</head>
+<body style="background-color:wheat">
+    <h1 style="border: 4px solid white;width:180px;padding:4px;color:white">D r i s h t i</h1>
+    <div class=buttons>
+        <button accesskey="p" id=play></button> &nbsp;
+        <button id=pause></button> &nbsp;
+        <button id=stop></button>
+    </div>
+    <article>
+    <!----
+        {% ifequal question.exam_name student.exam_name %}
+    
+        {% for i in question %}
+        <div class="question">
+            <h3><span class="label label-warning" id="qid">{{i.id}}</span>
+            <span id="question"> {{i.question}}</span>
+            </h3>
+        </div>
+        
+        {% endfor %}
+    
+    <p>jjijrijrijirjfrjfir</p>
+ {% else %}
+ <p> hjgjsgdfdshf</p>
+    
+ {% endifequal %}
+ -->
+
+     
+        {% for i in question %}
+        <div>
+    <center> 
+    <h2><b>{{i.exam_name}}</b></h2>
+</center> 
+</div>
+<p></p>  
+        <div class="question">
+            <h3><span class="label label-warning" id="qid">{{i.id}}</span>
+            <span id="question"> {{i.question}}</span>
+            </h3>
+        </div>
+      
+
+        {% endfor %}
+    </article>
+            <div class="mywebapp"> 
+                <div class="input">
+                   
+                    <textarea id="textbox" rows="6" cols="90" name="n1"  onkeyup="sync()"></textarea>
+                </div>         
+                <button accesskey="a" id="start-btn" class="btn btn-success" style="width: 100px;margin-left:10px;margin-top:0px;" title="Start">Start</button>
+               
+             
+            
+            </div>
+            <div class="mywebapp"> 
+                <div class="input">
+        <form method="POST">
+           
+            {% csrf_token %}
+         
+            <tr>  {% bootstrap_form answers %}</tr>
+          
+      
+            <button accesskey="s" name="submit" class="btn btn-danger" style="width: 100px;margin-left:10px;margin-top:0px;">Submit</button>
+        </form>
+    </div>
+</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+  
+        {%  if question.has_other_pages %}
+        <ul class="pagination pagination-sm">
+        {% if product_list.has_previous %}
+                 <li><a href="?page={{ question.previous_page_number }}">Prev</a></li>
+            {% else %}
+                  <li class="disabled"></li>
+            {% endif %}
+        {% for pages in question.paginator.page_range %}
+            {% if question.number == pages %}
+                   <li><a href="#">{{ pages }}</a></li>
+            {% else %}
+                  <li><a href="?page={{pages}}">{{ pages }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if question.has_next %}
+                <li><a href="?page={{question.next_page_number }}" accesskey="n">Next</a></li>
+            {% else %}
+                
+                
+                 <li><a href="{% url 'exam:completed' %}" accesskey="n">Click</a></li>
+            {% endif %}
+
+        </ul>
+      {% endif %}
+        <blockquote></blockquote>
+       
+  
+</body>
+<script>
+    onload = function() {
+        if ('speechSynthesis' in window) with(speechSynthesis) {
+    
+            var playEle = document.querySelector('#play');
+            var pauseEle = document.querySelector('#pause');
+            var stopEle = document.querySelector('#stop');
+            var flag = false;
+    
+            playEle.addEventListener('click', onClickPlay);
+            pauseEle.addEventListener('click', onClickPause);
+            stopEle.addEventListener('click', onClickStop);
+    
+            function onClickPlay() {
+                if (!flag) {
+                    flag = true;
+                    utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+                    utterance.voice = getVoices()[0];
+                    utterance.onend = function() {
+                        flag = false;
+                        playEle.className = pauseEle.className = '';
+                        stopEle.className = 'stopped';
+                    };
+                    playEle.className = 'played';
+                    stopEle.className = '';
+                    speak(utterance);
+                }
+                if (paused) { /* unpause/resume narration */
+                    playEle.className = 'played';
+                    pauseEle.className = '';
+                    resume();
+                }
+            }
+    
+            function onClickPause() {
+                if (speaking && !paused) { /* pause narration */
+                    pauseEle.className = 'paused';
+                    playEle.className = '';
+                    pause();
+                }
+            }
+    
+            function onClickStop() {
+                if (speaking) { /* stop narration */
+                    /* for safari */
+                    stopEle.className = 'stopped';
+                    playEle.className = pauseEle.className = '';
+                    flag = false;
+                    cancel();
+    
+                }
+            }
+    
+        }
+    
+        else { /* speech synthesis not supported */
+            msg = document.createElement('h5');
+            msg.textContent = "Detected no support for Speech Synthesis";
+            msg.style.textAlign = 'center';
+            msg.style.backgroundColor = 'red';
+            msg.style.color = 'white';
+            msg.style.marginTop = msg.style.marginBottom = 0;
+            document.body.insertBefore(msg, document.querySelector('div'));
+        }
+    
+    }
+
+    var SpeechRecognition = window.webkitSpeechRecognition;
+  
+    var recognition = new SpeechRecognition();
+     
+    var Textbox = $('#textbox');
+    var instructions = $('instructions');
+     
+    var Content = '';
+     
+    recognition.continuous = true;
+     
+    recognition.onresult = function(event) {
+     
+      var current = event.resultIndex;
+     
+      var transcript = event.results[current][0].transcript;
+     
+        Content += transcript;
+        Textbox.val(Content);
+      
+    };
+     
+    recognition.onstart = function() { 
+      instructions.text('Voice recognition is ON.');
+    }
+     
+    recognition.onspeechend = function() {
+      instructions.text('No activity.');
+    }
+     
+    recognition.onerror = function(event) {
+      if(event.error == 'no-speech') {
+        instructions.text('Try again.');  
+      }
+    }
+     
+    $('#start-btn').on('click', function(e) {
+      if (Content.length) {
+        Content += ' ';
+      }
+      recognition.start();
+    });
+     
+    Textbox.on('input', function() {
+      Content = $(this).val();
+    })
+    function sync()
+    {
+      var n1 = document.getElementById('textbox');
+      var n2 = document.getElementById('n2');
+      n2.value = n1.value;
+    }
+    var timer = setTimeout(function() {
+        window.location='http://127.0.0.1:8000/'
+    }, 600000);
+</script>
+</html>

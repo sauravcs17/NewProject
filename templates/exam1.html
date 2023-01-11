@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" href="http://bit.ly/ghfavicon" width=32px>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="style.css">
+	<link rel="prefetch" href="pause1.svg">
+	<link rel="prefetch" href="play1.svg">
+	<link rel="prefetch" href="stop1.svg">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<script src="script.js" defer></script>
+	<title>instructions</title>
+</head>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+article {
+    width: 60%;
+    margin: auto;
+}
+blockquote,
+div,
+h1 {
+    text-align: center;
+}
+blockquote {
+    font-size: 1.2rem;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 48px;
+    outline: none;
+    padding: 0;
+    width: 48px;
+}
+html {
+    font-size: 16pt;
+    font-family: crimson text;
+}
+#play {
+  background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play.svg);
+}
+
+#play.played {
+  background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play1.svg);
+}
+
+#pause {
+  background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause.svg);
+}
+
+#pause.paused {
+  background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg);
+}
+
+#stop {
+  background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop.svg);
+}
+
+#stop.stopped {
+  background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop1.svg);
+}
+@media (max-width: 700px) {
+    html {
+        font-size: 14pt;
+    }
+    article {
+        width: 90%;
+    }
+}
+
+body {
+  margin: 0;
+}
+
+
+/*  demo decor */
+
+#-demo-title {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 36px;
+  background-color: rgb(25, 26, 25);
+  color: #0F316C;
+  line-height: 36px;
+  font-weight: bold;
+  font-size: 36pt;
+  text-align: center;
+}
+
+#-demo-profile {
+  float: left;
+  height: 100%;
+  opacity: .4;
+}
+
+#-demo-profile:hover {
+  opacity: 1;
+}
+
+@media (max-width: 400px) {
+  #-demo-title {
+      font-size: 12pt;
+  }
+}
+hoverable{
+display:inline-block;
+backface-visibility: hidden;
+vertical-align: middle;
+position:relative;
+box-shadow: 0 0 1px rgba(0,0,0,0);
+tranform: translateZ(0);
+transition-duration: .3s;
+transition-property:transform;
+}
+
+.hoverable:before{
+position:absolute;
+pointer-events: none;
+z-index:-1;
+content: '';
+top: 100%;
+left: 5%;
+height:10px;
+width:90%;
+opacity:0;
+background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.76) 0%, rgba(255, 255, 255, 0.836) 80%);
+background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.884) 0%, rgba(3, 3, 3, 0.904) 80%);
+/* W3C */
+transition-duration: 0.3s;
+transition-property: transform, opacity;
+}
+
+.hoverable:hover, .hoverable:active, .hoverable:focus{
+transform: translateY(-5px);
+}
+.hoverable:hover:before, .hoverable:active:before, .hoverable:focus:before{
+opacity: 1;
+transform: translateY(-5px);
+}
+
+
+
+@keyframes bounce-animation {
+16.65% {
+  -webkit-transform: translateY(8px);
+  transform: translateY(8px);
+}
+
+33.3% {
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
+}
+
+49.95% {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+}
+
+66.6% {
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+83.25% {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+100% {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+}
+
+.bounce {
+animation-name: bounce-animation;
+animation-duration: 5s;
+}
+
+
+
+/*everything below here is just setting up the page, so dont worry about it */
+
+
+@media (min-width: 768px) {
+.navbar{
+  text-align: center !important;
+  float: none;
+  display: inline-block;
+ 
+}
+}
+
+nav {
+background: none !important;
+text-transform:uppercase;
+li {
+  margin-left: 3em;
+  margin-right: 3em;
+  a{
+    transition: .5s color ease-in-out;
+  }
+}
+}
+
+.page-title {
+opacity: .75 !important;
+}
+
+</style>
+<body style="background-color: wheat;"
+  <div class="container-fluid">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a id="len1" class="hoverable" href="/">Home</a></li>
+          <li><a id="len2" class="hoverable" href="#">About</a></li>
+          <li><a id="len3" class="hoverable" href="{% url 'account:profile' %}">Profile</a></li>
+        
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <br>
+
+	<div>
+		<button accesskey="p" id=play></button> &nbsp;
+		<button accesskey="q" id=pause></button> &nbsp;
+		<button id=stop></button>
+	</div>
+	<article>
+    <h1 style="color: red;">INSTRUCTIONS TO THE CANDIDATES</h1>
+    <h2></h2>
+    <p>1 TOTAL QUESTIONS : 5</p>
+    <p>2 TOTAL MARKS : 50 </p>
+    <p>3 EXAM STARTING TIME : 11:00</p>
+    <p>4 EXAM ENDING TIME : 1:00</p>
+    <p>5 EACH QUESTION CARRY 10 MARKS</p>
+
+    <p>6 TO START THE EXAM PLEASE PRESS 'A' </p>
+    <p>7 ANSWERS WILL BE AUTOMATICALLY SUBMITTED ONCE THE TIME GETS OVER </p>
+    <p>8 AFTER COMPLETING ANSWERING PLEASE PRESS 'S' .</p>
+    <p>9 TO START THE EXAM PLEASE PRESS 'N' </p>
+  </article>
+  <center>
+  <a href="{% url 'exam:startexam' %}">
+    <button accesskey="n" id="myBtn" type="submit" class="btn btn-danger" style="width: 500px;margin-top: 175px;">Ok,Then Continue</button>
+  </a>
+</center>
+</body>
+<script>
+onload = function() {
+    if ('speechSynthesis' in window) with(speechSynthesis) {
+
+
+        var playEle = document.querySelector('#play');
+        var pauseEle = document.querySelector('#pause');
+        var stopEle = document.querySelector('#stop');
+        var flag = false;
+
+
+        playEle.addEventListener('click', onClickPlay);
+        pauseEle.addEventListener('click', onClickPause);
+        stopEle.addEventListener('click', onClickStop);
+
+        function onClickPlay() {
+            if(!flag){
+                flag = true;
+                utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+                utterance.voice = getVoices()[0];
+                utterance.onend = function(){
+                    flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
+                };
+                playEle.className = 'played';
+                stopEle.className = '';
+                speak(utterance);
+            }
+             if (paused) { /* unpause/resume narration */
+                playEle.className = 'played';
+                pauseEle.className = '';
+                resume();
+            } 
+        }
+
+        function onClickPause() {
+            if(speaking && !paused){ /* pause narration */
+                pauseEle.className = 'paused';
+                playEle.className = '';
+                pause();
+            }
+        }
+
+        function onClickStop() {
+            if(speaking){ /* stop narration */
+                /* for safari */
+                stopEle.className = 'stopped';
+                playEle.className = pauseEle.className = '';
+                flag = false;
+                cancel();
+
+            }
+        }
+
+    }
+
+    else { /* speech synthesis not supported */
+        msg = document.createElement('h5');
+        msg.textContent = "Detected no support for Speech Synthesis";
+        msg.style.textAlign = 'center';
+        msg.style.backgroundColor = 'red';
+        msg.style.color = 'white';
+        msg.style.marginTop = msg.style.marginBottom = 0;
+        document.body.insertBefore(msg, document.querySelector('div'));
+    }
+
+}
+
+</script
+</html>
